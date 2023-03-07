@@ -19,6 +19,7 @@ namespace CMP1903M_A01_2223
                 {
                     Card card = new Card(i,j);
                     pack.Add(card);
+                    Console.WriteLine(card);
                 }
             }
         }
@@ -41,14 +42,15 @@ namespace CMP1903M_A01_2223
             return true;
 
         }
-        public static Card deal()
-        {
+
+        //public static Card deal()
+        //{
             //Deals one card
 
-        }
-        public static List<Card> dealCard(int amount)
-        {
+        //}
+        //public static List<Card> dealCard(int amount)
+        //{
             //Deals the number of cards specified by 'amount'
-        }
+        //}
     }
 }
