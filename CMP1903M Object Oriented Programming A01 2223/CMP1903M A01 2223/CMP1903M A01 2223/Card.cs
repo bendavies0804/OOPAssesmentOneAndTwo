@@ -10,7 +10,7 @@ namespace CMP1903M_A01_2223
     {
         //Base for the Card class.
 
-        
+
         //Value: numbers 1 - 13
         List<int> Value = new List<int>() {1,2,3,4,5,6,7,8,9,10,11,12,13};
         //Suit: numbers 1 - 4
@@ -23,7 +23,7 @@ namespace CMP1903M_A01_2223
         public Card(int Value, int Suit)
         {
             Value = Value;
-            Suit = Suit;  
+            Suit = Suit; 
 
         }
     }
