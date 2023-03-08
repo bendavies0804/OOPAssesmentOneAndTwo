@@ -23,28 +23,28 @@ namespace CMP1903M_A01_2223
                 }
             }
         }
-        public static bool shuffleCardPack(int typeOfShuffle)
+        public static bool shuffleCardPack(string typeOfShuffle)
         {
             //Console.Write("Choose a shuffle");
             //Console.Write("1 -- Fisher Yates || 2 -- Riffle || 3 -- no shuffle");
             //string userInput = Console.ReadLine();
 
-            if (typeOfShuffle == 1)
+            if (typeOfShuffle == "1")
             {
-                //FiSHER YATES
-                //Random random = new Random();
-                //for (int length = pack.Count - 1; length > 0; length--)
-                //{
-                    
-                //}
+
+                Console.Write("Fisher yates shuffle chosen");
+                Console.ReadLine();
+
             }  
-            else if (typeOfShuffle == 2)
+            else if (typeOfShuffle == "2")
             {
-                //RIFFLE
+                Console.Write("Riffle shuffle chosen");
+                Console.ReadLine();
             }
             else
             {
-                //no shuffle
+                Console.Write("No shuffle chosen");
+                Console.ReadLine();
             }
             //Shuffles the pack based on the type of shuffle   
             return true;
