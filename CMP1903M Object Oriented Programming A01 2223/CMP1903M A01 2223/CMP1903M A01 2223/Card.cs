@@ -12,15 +12,16 @@ namespace CMP1903M_A01_2223
 
 
         //Value: numbers 1 - 13
-        List<int> Value = new List<int>() {1,2,3,4,5,6,7,8,9,10,11,12,13};
+        
+        public enum Value { Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King };
         //Suit: numbers 1 - 4
-        List<int> Suit = new List<int>() {1,2,3,4};
+        public enum Suit { Spades, Hearts, Diamonds, Clubs };
 
         //The 'set' methods for these properties could have some validation
-       public int value { get; set; }
-       public int suit { get; set; }
+       public Value value { get; set; }
+       public Suit suit { get; set; }
 
-        public Card(int Value, int Suit)
+        public Card(Value Value, Suit Suit)
         {
             value = Value;
             suit = Suit; 
