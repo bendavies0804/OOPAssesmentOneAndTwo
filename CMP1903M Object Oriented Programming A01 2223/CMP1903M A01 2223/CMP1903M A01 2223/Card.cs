@@ -22,8 +22,8 @@ namespace CMP1903M_A01_2223
 
         public Card(int Value, int Suit)
         {
-            Value = Value;
-            Suit = Suit; 
+            value = Value;
+            suit = Suit; 
 
         }
     }

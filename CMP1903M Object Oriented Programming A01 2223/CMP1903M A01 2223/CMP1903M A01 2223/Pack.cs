@@ -17,18 +17,26 @@ namespace CMP1903M_A01_2223
             {
                 for(int j = 1; j <=13; j++)
                 {
-                    Card card = new Card(i,j);
+                    Card card = new Card(j,i);
                     pack.Add(card);
                     Console.WriteLine(card);
                 }
             }
         }
-
         public static bool shuffleCardPack(int typeOfShuffle)
         {
+            //Console.Write("Choose a shuffle");
+            //Console.Write("1 -- Fisher Yates || 2 -- Riffle || 3 -- no shuffle");
+            //string userInput = Console.ReadLine();
+
             if (typeOfShuffle == 1)
             {
                 //FiSHER YATES
+                //Random random = new Random();
+                //for (int length = pack.Count - 1; length > 0; length--)
+                //{
+                    
+                //}
             }  
             else if (typeOfShuffle == 2)
             {
