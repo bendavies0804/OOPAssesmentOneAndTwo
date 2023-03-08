@@ -12,16 +12,16 @@ namespace CMP1903M_A01_2223
 
         public Pack()
         {
-            pack = new List<Card>();
-            for(int i = 1; i <=4; i++)
+            List<Card> pack = new List<Card>();
+            Pack deck = new Pack();
+            for (int i = 0; i < 4; i++)
             {
-                for(int j = 1; j <=13; j++)
+                for(int j = 0; j < 13; j++)
                 {
-                    Card card = new Card(j,i);
-                    pack.Add(card);
-                    Console.WriteLine(card);
+                
                 }
             }
+
         }
         public static bool shuffleCardPack(string typeOfShuffle)
         {
