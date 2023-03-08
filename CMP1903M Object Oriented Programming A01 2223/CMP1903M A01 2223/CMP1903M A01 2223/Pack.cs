@@ -18,22 +18,21 @@ namespace CMP1903M_A01_2223
             {
                 for(int j = 0; j < 13; j++)
                 {
-                    //CREATE DECK
+                    pack.Add(new Card((Value)i, (Suit)j));
                 }
             }
-
+            Console.WriteLine(String.Join(", ", pack));
         }
         public static bool shuffleCardPack(string typeOfShuffle)
         {
-            //Console.Write("Choose a shuffle");
-            //Console.Write("1 -- Fisher Yates || 2 -- Riffle || 3 -- no shuffle");
-            //string userInput = Console.ReadLine();
+ 
 
             if (typeOfShuffle == "1")
             {
 
                 Console.Write("Fisher yates shuffle chosen");
                 Console.ReadLine();
+                //Console.WriteLine(String.Join(", ", Pack.deck));
 
             }  
             else if (typeOfShuffle == "2")
