@@ -14,6 +14,7 @@ namespace CMP1903M_A01_2223
             Console.Write("1 -- Fisher Yates || 2 -- Riffle || 3 -- no shuffle:  ");
             string typeOfShuffle = Console.ReadLine();
             Pack.shuffleCardPack(typeOfShuffle);
+
         }
     }
 }

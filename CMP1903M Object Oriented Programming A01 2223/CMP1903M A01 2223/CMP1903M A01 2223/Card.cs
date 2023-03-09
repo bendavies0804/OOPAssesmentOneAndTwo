@@ -3,69 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace CMP1903M_A01_2223
 {
 
     class Card
     {
-
-        /*
-        //Base for the Card class.
-
-
-        //Value: numbers 1 - 13
-        
-        public enum Value 
-        { 
-            Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King 
-        };
-        //Suit: numbers 1 - 4
-        public enum Suit 
-        { 
-            Spades, 
-            Hearts, 
-            Diamonds, 
-            Clubs 
-        };
-
-        
-        //The 'set' methods for these properties could have some validation
-   
-
-        public Card(Value Value, Suit Suit)
-        {
-            Value = value;
-            Suit = suit; 
-
-        }
-        */
-
         public int Value { get; set; }
         public string Suit { get; set; }
         public Card(int val)
         {
-            // Generating the corresponding cards to values and suits
             Value = (val % 13) + 1;
             if (val / 13 == 0)
             {
-                Suit = "Diamonds";
+                Suit = "Spades";
             }
             else if (val / 13 == 1)
             {
-                Suit = "Clubs";
+                Suit = "Hearts";                         //Takes the first 13 cards, makes their suit Spades, second 13 as hearts, etc...
             }
             else if (val / 13 == 2)
             {
-                Suit = "Hearts";
+                Suit = "Diamonds";
             }
             else
             {
-                Suit = "Spades";
+                Suit = "Clubs";
             }
         }
-        // Custom added method to display Ace, Jack, Queen or King as well as making the numbers in the same format
-        public string Display()
+        public static string correctWords(int Value, string Suit)
         {
             if (Value == 1)
             {
@@ -73,9 +40,9 @@ namespace CMP1903M_A01_2223
             }
             else if (Value == 11)
             {
-                return "Jack of " + Suit;
-            }
-            else if (Value == 12)
+                return "Jack of " + Suit;                       
+            }                                               //This changes the corresponding values to Ace, jack, queen, and king
+            else if (Value == 12)                           //Instead of 1,11,12,13
             {
                 return "Queen of " + Suit;
             }
