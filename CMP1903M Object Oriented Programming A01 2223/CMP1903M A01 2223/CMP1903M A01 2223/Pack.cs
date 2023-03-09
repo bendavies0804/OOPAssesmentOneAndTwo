@@ -49,8 +49,27 @@ namespace CMP1903M_A01_2223
             else if (typeOfShuffle == "2")
             {
                 Console.Write("Riffle shuffle chosen");
-                
-                Console.ReadLine();
+                List <Card> firstHalf = new List<Card>();
+                List<Card> secondHalf = new List<Card>();
+                for (int i = 0; i < 26; i++)
+                {
+                    firstHalf.Add(pack.pack[i]);
+                }
+                for (int i = 26; i < 52; i++)
+                {
+                    secondHalf.Add(pack.pack[i]);
+                }
+                for (int i = 0; i<26; i++)
+                {
+                    shuffledPack.Add(firstHalf[i]);
+                    shuffledPack.Add(secondHalf[i]);
+                }
+
+                pack.pack = shuffledPack;
+                Console.Write("How many cards do you want?: ");
+                int amount = Convert.ToInt32(Console.ReadLine());
+                Pack.dealCard(amount, pack.pack);                                //Deals the amount of cards the user specifies after the shuffle
+                return true;
             }
             else
             {
@@ -62,7 +81,7 @@ namespace CMP1903M_A01_2223
                 return true;
             }
             //Shuffles the pack based on the type of shuffle   
-            return true;
+            //return true;
 
         }
 
@@ -79,7 +98,7 @@ namespace CMP1903M_A01_2223
             return deal.First();
         }
        public static Card dealCard(int amount, List<Card> list)
-        {
+       {
             //Deals the number of cards specified by 'amount
             var dealCard = list.Take(amount);
             dealCard = list.Take(amount);
@@ -87,10 +106,10 @@ namespace CMP1903M_A01_2223
             {
        
                 Console.WriteLine(Card.correctWords(card.Value, card.Suit));
-
+               
             }
             Console.ReadLine();
-            return dealCard.First();
-        }
+            return dealCard.FirstOrDefault();
+       }
     }
 }
