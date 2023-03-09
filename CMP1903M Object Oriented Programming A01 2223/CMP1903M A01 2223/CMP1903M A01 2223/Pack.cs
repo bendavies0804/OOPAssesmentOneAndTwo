@@ -27,6 +27,7 @@ namespace CMP1903M_A01_2223
             Pack pack = new Pack();
             Random random = new Random();
             List<Card> shuffledPack = new List<Card>();
+            bool valid = true;
 
             if (typeOfShuffle == "1")                   //If the user types 1, fisher yates shuffle starts
             {
@@ -40,8 +41,20 @@ namespace CMP1903M_A01_2223
                 
                 }
                 pack.pack = shuffledPack;
-                Console.Write("How many cards do you want?: ");
-                int amount = Convert.ToInt32(Console.ReadLine());
+                int amount = 0;
+                while (valid)
+                {
+                    Console.Write("How many cards do you want?: ");
+                    amount = Convert.ToInt32(Console.ReadLine());
+                    if (amount > 0 && amount < 53)
+                    {
+                        valid = false;                                                 //This while loop only allows the user to type a number between 1 and 52
+                    }
+                    else
+                    {
+                        Console.WriteLine("Number of cards is invalid try again.");
+                    }
+                }
                 Pack.dealCard(amount, pack.pack);                                //Deals the amount of cards the user specifies after the shuffle
                 return true;
                 //Console.ReadLine();
@@ -49,35 +62,61 @@ namespace CMP1903M_A01_2223
             else if (typeOfShuffle == "2")
             {
                 Console.Write("Riffle shuffle chosen");
-                List <Card> firstHalf = new List<Card>();
+                List <Card> firstHalf = new List<Card>();                       //Creates two new lists
                 List<Card> secondHalf = new List<Card>();
                 for (int i = 0; i < 26; i++)
                 {
-                    firstHalf.Add(pack.pack[i]);
+                    firstHalf.Add(pack.pack[i]);                                 //Adds the first hald of the pack to firstHalf list
                 }
                 for (int i = 26; i < 52; i++)
                 {
-                    secondHalf.Add(pack.pack[i]);
+                    secondHalf.Add(pack.pack[i]);                               //Adds the second half of the pack to secondHalf list
                 }
                 for (int i = 0; i<26; i++)
                 {
-                    shuffledPack.Add(firstHalf[i]);
+                    shuffledPack.Add(firstHalf[i]);                            //Takes one at a time from each of those lists in puts them shuffled list
                     shuffledPack.Add(secondHalf[i]);
                 }
 
                 pack.pack = shuffledPack;
-                Console.Write("How many cards do you want?: ");
-                int amount = Convert.ToInt32(Console.ReadLine());
-                Pack.dealCard(amount, pack.pack);                                //Deals the amount of cards the user specifies after the shuffle
+                int amount = 0;
+                while (valid)
+                {
+                    Console.Write("How many cards do you want?: ");
+                    amount = Convert.ToInt32(Console.ReadLine());
+                    if (amount > 0 && amount < 53)
+                    {
+                        valid = false;                                          //This while loop only allows the user to type a number between 1 and 52
+                    }
+                    else
+                    {
+                        Console.WriteLine("Number of cards is invalid try again.");
+                    }
+                }
+
+                dealCard(amount, pack.pack); //Deals the amount of cards the user specifies after the shuffle
                 return true;
             }
             else
             {
-                Console.Write("No shuffle chosen");
-                Console.ReadLine();
-                Console.Write("How many cards do you want?: ");
-                int amount = Convert.ToInt32(Console.ReadLine());
-                Pack.dealCard(amount, pack.pack);                                //Deals the amount of cards the user specifies after the shuffle
+                Console.WriteLine("No shuffle chosen");
+                while (valid)
+                {
+                    Console.WriteLine("How many cards do you want?: ");
+                    int amount = Convert.ToInt32(Console.ReadLine());
+                    if (amount > 0 && amount < 53)
+                    {
+                        Pack.dealCard(amount, pack.pack);                           //This while loop only allows the user to type a number between 1 and 52
+                        valid = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Number of cards is invalid try again.");
+                        valid = true;
+                    }
+
+                }
+
                 return true;
             }
             //Shuffles the pack based on the type of shuffle   
@@ -104,9 +143,7 @@ namespace CMP1903M_A01_2223
             dealCard = list.Take(amount);
             foreach (Card card in dealCard)
             {
-       
-                Console.WriteLine(Card.correctWords(card.Value, card.Suit));
-               
+                Console.WriteLine(Card.correctWords(card.Value, card.Suit));           //Deals the cards specified by the user
             }
             Console.ReadLine();
             return dealCard.FirstOrDefault();
