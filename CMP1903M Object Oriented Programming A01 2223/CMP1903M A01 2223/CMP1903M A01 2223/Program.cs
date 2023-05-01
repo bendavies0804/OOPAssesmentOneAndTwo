@@ -13,6 +13,7 @@ namespace CMP1903M_A01_2223
             bool valid = true;
             while (valid)
             {
+                /*
                 Console.Write("Choose a shuffle \n\t\t ");
                 Console.Write("1 -- Fisher Yates || 2 -- Riffle || 3 -- no shuffle:  ");
                 string typeOfShuffle = Console.ReadLine();
@@ -26,7 +27,7 @@ namespace CMP1903M_A01_2223
                     Console.WriteLine("Invalid shuffle chosen, try again.");
                 }
                 
-
+                */
             }
 
         }
