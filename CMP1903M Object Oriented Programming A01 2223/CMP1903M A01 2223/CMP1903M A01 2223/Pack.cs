@@ -41,21 +41,7 @@ namespace CMP1903M_A01_2223
                 
                 }
                 pack.pack = shuffledPack;
-                int amount = 0;
-                while (valid)
-                {
-                    Console.Write("How many cards do you want?: ");
-                    amount = Convert.ToInt32(Console.ReadLine());
-                    if (amount > 0 && amount < 53)
-                    {
-                        valid = false;                                                 //This while loop only allows the user to type a number between 1 and 52
-                    }
-                    else
-                    {
-                        Console.WriteLine("Number of cards is invalid try again.");
-                    }
-                }
-                Pack.dealCard(amount, pack.pack);                                //Deals the amount of cards the user specifies after the shuffle
+                Pack.dealCard(2, pack.pack);                                //Deals the amount of cards the user specifies after the shuffle
                 return true;
                 //Console.ReadLine();
             }
@@ -124,6 +110,8 @@ namespace CMP1903M_A01_2223
 
         }
 
+
+        /*
         public static Card deal(List<Card> list)
         {
             //Deals one card
@@ -136,14 +124,49 @@ namespace CMP1903M_A01_2223
             }
             return deal.First();
         }
+
+        */
        public static Card dealCard(int amount, List<Card> list)
        {
             //Deals the number of cards specified by 'amount
             var dealCard = list.Take(amount);
             dealCard = list.Take(amount);
+            int i = 0;
+            int j;
+            int num1;
+            int num2;
             foreach (Card card in dealCard)
             {
-                Console.WriteLine(Card.correctWords(card.Value, card.Suit));           //Deals the cards specified by the user
+                if (i == 0)
+                {
+                    num1 = card.Value;
+                    Console.Write(card.Value);    //Deals the cards specified by the user
+                    Console.Write(" ");
+                    Console.Write(card.Suit);
+                    Console.Write(" ");
+                    if (card.Suit == "+")
+                    {
+                        j = 1;
+                    }
+                    if (card.Suit == "X")
+                    {
+                        j = 2;
+                    }
+                    if(card.Suit == "-")
+                    {
+                        j = 3;
+                    }
+                    if (card.Suit == "÷")
+                    {
+                        j = 4;
+                    }
+                }
+                if (i == 1)
+                {
+                    num2 = card.Value;
+                    Console.Write(card.Value);    //Deals the cards specified by the user
+                }
+                i = i + 1;
             }
             Console.ReadLine();
             return dealCard.FirstOrDefault();

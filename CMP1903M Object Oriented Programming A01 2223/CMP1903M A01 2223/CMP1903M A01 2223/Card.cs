@@ -17,43 +17,47 @@ namespace CMP1903M_A01_2223
             Value = (val % 13) + 1;
             if (val / 13 == 0)
             {
-                Suit = "Spades";
+                Suit = "+";
             }
             else if (val / 13 == 1)
             {
-                Suit = "Hearts";                         //Takes the first 13 cards, makes their suit Spades, second 13 as hearts, etc...
+                Suit = "-";                         //Takes the first 13 cards, makes their suit Spades, second 13 as hearts, etc...
             }
             else if (val / 13 == 2)
             {
-                Suit = "Diamonds";
+                Suit = "÷";
             }
             else
             {
-                Suit = "Clubs";
+                Suit = "X";
             }
         }
+
+      
         public static string correctWords(int Value, string Suit)
         {
             if (Value == 1)
             {
-                return "Ace of " + Suit;
+                return "1 " + Suit;
             }
             else if (Value == 11)
             {
-                return "Jack of " + Suit;                       
+                return "11 " + Suit;                       
             }                                               //This changes the corresponding values to Ace, jack, queen, and king
             else if (Value == 12)                           //Instead of 1,11,12,13
             {
-                return "Queen of " + Suit;
+                return "12 " + Suit;
             }
             else if (Value == 13)
             {
-                return "King of " + Suit;
+                return "13 " + Suit;
             }
             else
             {
-                return Value + " of " + Suit;
+                return Value + " " + Suit + " ";
             }
+
         }
+        
     }
 }
