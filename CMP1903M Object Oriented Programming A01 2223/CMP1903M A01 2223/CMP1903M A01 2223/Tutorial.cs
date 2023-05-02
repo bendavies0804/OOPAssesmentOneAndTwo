@@ -17,7 +17,9 @@ namespace CMP1903M_A01_2223
                 Console.Write("Main Menu: \n\t\t ");
                 Console.Write("1 -- Questions || 2 -- Instructions || 3 -- Quit:  ");
                 string choice = Console.ReadLine();
-                if (Convert.ToInt32(choice) > 0 && Convert.ToInt32(choice) < 4)
+                int b = -1;
+                bool a = int.TryParse(choice, out b);
+                if (a == true && b > 0 && b < 4)
                 {
                     if (choice == "1")
                     {

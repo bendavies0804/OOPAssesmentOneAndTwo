@@ -71,7 +71,7 @@ namespace CMP1903M_A01_2223
                     }
                     if (card.Suit == "X")
                     {
-                        j = 2;
+                        j = 2;                                                          //Modified to only deal 2 cards.
                     }
                     if(card.Suit == "-")
                     {
@@ -84,7 +84,7 @@ namespace CMP1903M_A01_2223
                 }
                 if (i == 1)
                 {
-                    num2 = card.Value;    //Deals the cards specified by the user
+                    num2 = card.Value;    
                 }
                 i = i + 1;
             }
@@ -132,7 +132,9 @@ namespace CMP1903M_A01_2223
             while (valid){
                 Console.Write("Would you like: 1 -- Another question || 2 -- Main Menu:  ");
                 string option = Console.ReadLine();
-                if (Convert.ToInt32(option) < 3 && Convert.ToInt32(option) > 0)
+                int b = -1;
+                bool a = int.TryParse(option, out b);
+                if (a = true && b < 3 && b > 0)
                 {
                     if (option == "1")
                     {

@@ -14,16 +14,16 @@ namespace CMP1903M_A01_2223
         public string Suit { get; set; }
         public Card(int val)
         {
-            Value = (val % 13) + 1;
+            Value = (val % 12) + 1;
             if (val / 13 == 0)
             {
                 Suit = "+";
             }
-            else if (val / 13 == 1)
+            else if (val / 12 == 1)
             {
-                Suit = "-";                         //Takes the first 13 cards, makes their suit Spades, second 13 as hearts, etc...
+                Suit = "-";                         //Only done up to 12 as maths in primary school only usually goes up to 12 times table
             }
-            else if (val / 13 == 2)
+            else if (val / 12 == 2)
             {
                 Suit = "÷";
             }
@@ -31,32 +31,6 @@ namespace CMP1903M_A01_2223
             {
                 Suit = "X";
             }
-        }
-
-      
-        public static string correctWords(int Value, string Suit)
-        {
-            if (Value == 1)
-            {
-                return "1 " + Suit;
-            }
-            else if (Value == 11)
-            {
-                return "11 " + Suit;                       
-            }                                               //This changes the corresponding values to Ace, jack, queen, and king
-            else if (Value == 12)                           //Instead of 1,11,12,13
-            {
-                return "12 " + Suit;
-            }
-            else if (Value == 13)
-            {
-                return "13 " + Suit;
-            }
-            else
-            {
-                return Value + " " + Suit + " ";
-            }
-
         }
         
     }
