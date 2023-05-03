@@ -20,7 +20,7 @@ namespace CMP1903M_A01_2223
                 Suit = "+";
             }
             else if (val / 12 == 1)
-            {
+            {                                       //does 1+, 2+, 3+ etc up to 12, then it does 1-, 2-, etc...
                 Suit = "-";                         //Only done up to 12 as maths in primary school only usually goes up to 12 times table
             }
             else if (val / 12 == 2)

@@ -18,9 +18,9 @@ namespace CMP1903M_A01_2223
         {
             pack = new List<Card>();             //Creates a list
 
-            for (int i = 0; i < 52; i++)
+            for (int i = 0; i < 48; i++)
             {
-                pack.Add(new Card(i));          //Adds all 52 cards to the deck (list)
+                pack.Add(new Card(i));          //Adds all 48 cards to the deck (list)
             }
 
         }
@@ -30,9 +30,9 @@ namespace CMP1903M_A01_2223
             Random random = new Random();
             List<Card> shuffledPack = new List<Card>();
 
-            if (typeOfShuffle == "1")                   //If the user types 1, fisher yates shuffle starts
+            if (typeOfShuffle == "1")                   
             {
-                for (int i = 52; i > 0; i--)
+                for (int i = 48; i > 0; i--)
                 {
                     int x = random.Next(i);
                     var temp = pack.pack[x];                    //Performs the fisher yates shuffle
@@ -41,7 +41,7 @@ namespace CMP1903M_A01_2223
 
                 }
                 pack.pack = shuffledPack;
-                Pack.dealCard(2, pack.pack);                                //Deals the amount of cards the user specifies after the shuffle
+                Pack.dealCard(2, pack.pack);                                //Deals 2 cards
                 return true;
                 //Console.ReadLine();
             }
@@ -52,7 +52,7 @@ namespace CMP1903M_A01_2223
 
        public static Card dealCard(int amount, List<Card> list)
        {
-            //Deals the number of cards specified by 'amount
+            //Deals the number of cards specified by 'amount'
             var dealCard = list.Take(amount);
             dealCard = list.Take(amount);
             int i = 0;
