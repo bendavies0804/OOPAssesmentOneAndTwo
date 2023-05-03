@@ -32,8 +32,7 @@ namespace CMP1903M_A01_2223
                     else
                     {
                         Console.WriteLine("Goodbye!");
-                        //Task.Delay(5000);
-                        Console.Read();
+                        Task.Delay(5000);
                         System.Environment.Exit(0);
                     }
                     valid = false;
