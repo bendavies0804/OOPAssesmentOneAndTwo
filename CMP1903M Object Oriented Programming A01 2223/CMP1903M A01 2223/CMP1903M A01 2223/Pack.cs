@@ -41,7 +41,7 @@ namespace CMP1903M_A01_2223
 
                 }
                 pack.pack = shuffledPack;
-                Pack.dealCard(2, pack.pack);                                //Deals 2 cards
+                Pack.dealCard(3, pack.pack);                                //Deals 3 cards
                 return true;
                 //Console.ReadLine();
             }
@@ -64,14 +64,16 @@ namespace CMP1903M_A01_2223
                 if (i == 0)
                 {
                     num1 = card.Value;
-
+                }
+                if (i == 1)
+                {
                     if (card.Suit == "+")
                     {
                         j = 1;
                     }
                     if (card.Suit == "X")
                     {
-                        j = 2;                                                          //Modified to only deal 2 cards.
+                        j = 2;                                                          //Modified to only deal 3 cards.
                     }
                     if(card.Suit == "-")
                     {
@@ -82,7 +84,7 @@ namespace CMP1903M_A01_2223
                         j = 4;
                     }
                 }
-                if (i == 1)
+                if (i == 2)
                 {
                     num2 = card.Value;    
                 }
@@ -118,15 +120,24 @@ namespace CMP1903M_A01_2223
                 answer = num1 / num2;
             }
             string uAnswerStr = Console.ReadLine();
-            int uAnswer = Convert.ToInt32(uAnswerStr);
-            if (uAnswer == answer)
+            int uAnswer;
+            bool check = int.TryParse(uAnswerStr, out uAnswer);
+            if (check == true)
             {
-                Console.WriteLine("Correct!");
+                if (uAnswer == answer)
+                {
+                    Console.WriteLine("Correct!");
 
+                }
+                else
+                {                   
+                  
+                    Console.WriteLine("Incorrect! The answer was: " + answer);                    
+                }
             }
             else
             {
-                Console.WriteLine("Incorrect! The answer was: " + Convert.ToString(answer));
+                Console.WriteLine("Invalid input! The answer was: " + answer);
             }
             bool valid = true;
             while (valid){
